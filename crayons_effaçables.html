@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marqueurs effaçables</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 30px;
+            background-color: #f9f9f9;
+        }
+        .container {
+            max-width: 800px;
+            margin: auto;
+            background-color: white;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+			<h2>Galerie photos</h2>
+			<div class="carousel">
+			<button class="prev" onclick="changeSlide(-1)">❮</button>
+			<img class="carousel-image" src="image1.jpg" alt="Image 1">
+			<img class="carousel-image" src="image2.jpg" alt="Image 2">
+			<img class="carousel-image" src="image3.jpg" alt="Image 3">
+			<button class="next" onclick="changeSlide(1)">❯</button>
+			</div>
+        }
+        .item-image {
+            width: 100%;
+            max-height: 400px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+        .item-title {
+            font-size: 28px;
+            margin-bottom: 10px;
+            color: #333;
+        }
+        .item-description {
+            font-size: 16px;
+            margin-bottom: 20px;
+            color: #555;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        table th, table td {
+            padding: 12px;
+            border: 1px solid #ddd;
+        }
+        table th {
+            background-color: #f2f2f2;
+            text-align: left;
+        }
+		
+		.carousel {
+			position: relative;
+			max-width: 100%;
+			height: 400px;
+			overflow: hidden;
+			margin-bottom: 30px;
+		}
+
+		.carousel-image {
+			display: none;
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+			border-radius: 8px;
+		}
+
+		.carousel-image.active {
+			display: block;
+		}
+
+		.carousel button {
+			position: absolute;
+			top: 50%;
+			transform: translateY(-50%);
+			background-color: rgba(255, 255, 255, 0.6);
+			border: none;
+			padding: 10px 15px;
+			cursor: pointer;
+			font-size: 24px;
+			border-radius: 50%;
+			user-select: none;
+		}		
+
+		.carousel .prev {
+			left: 10px;
+			}
+
+		.carousel .next {
+			right: 10px;
+		}
+
+    </style>
+</head>
+
+	<script>
+    let currentSlide = 0;
+    const images = document.querySelectorAll(".carousel-image");
+
+    function showSlide(index) {
+        images.forEach((img, i) => {
+            img.classList.remove("active");
+            if (i === index) img.classList.add("active");
+        });
+    }
+
+    function changeSlide(direction) {
+        currentSlide = (currentSlide + direction + images.length) % images.length;
+        showSlide(currentSlide);
+    }
+
+    // Affiche la première image au chargement
+    showSlide(currentSlide);
+	</script>
+	
+<body>
+    <div class="container">
+        <h1 class="item-title">marqueurs effaçables</h1>
+        <img src="crayons_effaçables.webp" alt="Image de l'article" class="item-image">
+        <p class="item-description">
+            Les crayons effaçables vous accompagnerons tout au long de votre débat d'idées pour noter, corriger et faire évoluer vos réflexions en toute liberté. Ils favorisent la créativité et permettent à chacun d'essayer, de se tromper et de recommencer à l'infini. Grâce à eux, vous contribuez à réduire le gaspillage en réutilisant les supports fournis avec le kit. Alors, Osez écrire, effacer, recommencer : c'est ainsi que naissent les meilleurs idées !
+        </p>
+
+        <h2> Les Caractéristiques techniques </h2>
+        <table>
+            <tr>
+                <th>Caractéristique</th>
+                <th>Détail</th>
+            </tr>
+            <tr>
+                <td>Marque</td>
+                <td>Betzold</td>
+            </tr>
+            <tr>
+                <td>Modèle</td>
+                <td>....</td>
+            </tr>
+            <tr>
+                <td>Nb d'exemplaires dans le kit</td>
+                <td>6 exemplaires</td>
+            </tr>			
+            <tr>
+                <td>Durée de vie</td>
+                <td>X ans</td>
+            </tr>
+        </table>
+		
+		<h2> Les Critères environnementaux </h2>
+		<table>
+            <tr>
+                <th>Caractéristique</th>
+                <th>Détail</th>
+            </tr>
+    </div>
+</body>
+</html>

@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Le bâton de parol avec des LED</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 30px;
+            background-color: #f9f9f9;
+        }
+        .container {
+            max-width: 800px;
+            margin: auto;
+            background-color: white;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        .item-title {
+            font-size: 28px;
+            margin-bottom: 10px;
+            color: #333;
+            text-transform: capitalize;
+        }
+        .item-description {
+            font-size: 16px;
+            margin-bottom: 20px;
+            color: #555;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        table th, table td {
+            padding: 12px;
+            border: 1px solid #ddd;
+        }
+        table th {
+            background-color: #f2f2f2;
+            text-align: left;
+        }
+        h2 {
+            margin-top: 40px;
+            color: #444;
+        }
+
+        /* Carousel styles */
+        .carousel {
+            position: relative;
+            max-width: 100%;
+            height: 400px;
+            overflow: hidden;
+            margin-bottom: 30px;
+        }
+
+        .carousel-image {
+            display: none;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+
+        .carousel-image.active {
+            display: block;
+        }
+
+        .carousel button {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(255, 255, 255, 0.6);
+            border: none;
+            padding: 10px 15px;
+            cursor: pointer;
+            font-size: 24px;
+            border-radius: 50%;
+            user-select: none;
+        }
+
+        .carousel .prev {
+            left: 10px;
+        }
+
+        .carousel .next {
+            right: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="item-title">Le bâton de parole avec LED</h1>
+
+        <div class="carousel">
+            <button class="prev" onclick="changeSlide(-1)">❮</button>
+            <img class="carousel-image" src="pilot1.jpg" alt="Marqueur 1">
+            <img class="carousel-image" src="pilot2.jpg" alt="Marqueur 2">
+            <img class="carousel-image" src="pilot3.jpg" alt="Marqueur 3">
+			<img class="carousel-image" src="pilot4.jpg" alt="Marqueur 4">
+            <button class="next" onclick="changeSlide(1)">❯</button>
+        </div>
+
+        <p class="item-description">
+            Le bâton de parole avec LED est un outil essentiel dans un kit de débat d’idées. Il permet de structurer les échanges en donnant à chacun un temps de parole équitable, évitant ainsi les interruptions ou les prises de parole trop longues. Grâce aux LEDs, les participants apprennent à s’exprimer de façon claire et concise tout en respectant les autres. Cet outil favorise l’écoute active, la prise de parole réfléchie et instaure un cadre bienveillant, propice à l’expression de toutes les opinions. Alors n'hésiter plus et exprimez vous librement !
+        </p>
+
+        <h2>Les Caractéristiques techniques</h2>
+        <table>
+            <tr>
+                <th>Caractéristique</th>
+                <th>Détail</th>
+            </tr>
+            <tr>
+                <td>Marque</td>
+                <td>KUDI</td>
+            </tr>
+            <tr>
+                <td>Modèle</td>
+                <td>plusieurs couleurs disponibles</td>
+            </tr>
+            <tr>
+                <td>Nombre d'exemplaires dans le kit</td>
+                <td>1 exemplaire</td>
+            </tr>			
+            <tr>
+                <td>Durée de vie</td>
+                <td>durée de vie de la batterie</td>
+            </tr>
+        </table>
+
+        <h2>Les Critères environnementaux</h2>
+        <table>
+            <tr>
+                <th>Caractéristique</th>
+                <th>Détail</th>
+            </tr>
+            <tr>
+                <td>Réutilisable</td>
+                <td>Oui (batterie rechargeable)</td>
+            </tr>
+            <tr>
+                <td>Matériaux recyclables</td>
+                <td>Oui (corps en plastique recyclable)</td>
+            </tr>
+            <tr>
+                <td>Fabrication</td>
+                <td>Made in France</td>
+            </tr>
+        </table>
+    </div>
+
+    <script>
+        let currentSlide = 0;
+        const images = document.querySelectorAll(".carousel-image");
+
+        function showSlide(index) {
+            images.forEach((img, i) => {
+                img.classList.remove("active");
+                if (i === index) img.classList.add("active");
+            });
+        }
+
+        function changeSlide(direction) {
+            currentSlide = (currentSlide + direction + images.length) % images.length;
+            showSlide(currentSlide);
+        }
+
+        // Affiche la première image au chargement
+        showSlide(currentSlide);
+    </script>
+</body>
+</html>
